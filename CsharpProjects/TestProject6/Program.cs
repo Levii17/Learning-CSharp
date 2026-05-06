@@ -20,6 +20,7 @@ Here are the rules for the battle game that you need to implement in your code p
 
 */
 
+/*
 int heroHealth = 10;
 int monsterHealth = 10;
 Random random = new Random();
@@ -44,3 +45,60 @@ while (heroHealth > 0 && monsterHealth > 0)
         break; // Exit the loop if the monster is defeated
     }
 }
+*/
+
+/*
+Code project - write code that validates integer input
+
+Here are the conditions that your first coding project must implement:
+
+    Your solution must include either a do-while or while iteration.
+
+    Before the iteration block: your solution must use a Console.WriteLine() statement to prompt the user for an integer value between 5 and 10.
+
+    Inside the iteration block:
+        Your solution must use a Console.ReadLine() statement to obtain input from the user.
+        Your solution must ensure that the input is a valid representation of an integer.
+        If the integer value isn't between 5 and 10, your code must use a Console.WriteLine() statement to prompt the user for an integer value between 5 and 10.
+        Your solution must ensure that the integer value is between 5 and 10 before exiting the iteration.
+
+    Below (after) the iteration code block: your solution must use a Console.WriteLine() statement to inform the user that their input value has been accepted.
+
+*/
+
+string? input;
+string userInput = "";
+int userValue = 0;
+bool isInputValid = false;
+
+Console.WriteLine("Please enter an integer between 5 & 10");
+
+do
+{
+    input = Console.ReadLine();
+
+    if (input != null)
+    {
+        userInput = input;
+    }
+
+    isInputValid = int.TryParse(userInput, out userValue);
+
+    if (isInputValid == true)
+    {
+        if (userValue < 5 || userValue > 10)
+        {
+            isInputValid = false;
+            Console.WriteLine($"You entered {userValue}. Please enter a number between 5 and 10.");
+        }
+    }
+    else
+    {
+        Console.WriteLine("Sorry, you entered an invalid number, please try again");
+    }
+
+} while (isInputValid == false);
+
+Console.WriteLine($"Your input value ({userValue}) has been accepted.");
+
+input = Console.ReadLine();
